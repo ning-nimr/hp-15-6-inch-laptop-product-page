@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HP 15.6 inch Laptop - Product Details</title>
+    <style>
+        :root {
+            --primary-color: #0171b9;
+            --secondary-color: #f4f4f4;
+            --accent-color: #ff4500;
+            --text-color: #333;
+            --light-text: #666;
+            --white: #fff;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background-color: var(--white);
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem;
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        section {
+            margin-bottom: 3rem;
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        .key-features-section {
+            padding: 2rem;
+        }
+        
+        .features-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-item {
+            background-color: var(--secondary-color);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .feature-name {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        
+        .specs-table th, .specs-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .specs-table th {
+            background-color: var(--secondary-color);
+            font-weight: 600;
+        }
+        
+        .specs-table tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        .image-gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .image-gallery img:hover {
+            transform: scale(1.05);
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+        
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 80%;
+            max-height: 80%;
+        }
+        
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .purchase-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            padding: 2rem;
+            background-color: var(--secondary-color);
+            border-radius: var(--border-radius);
+        }
+        
+        .price-container {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .price-value {
+            color: var(--accent-color);
+            font-size: 2rem;
+        }
+        
+        .product-link {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--accent-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-weight: bold;
+            transition: var(--transition);
+        }
+        
+        .product-link:hover {
+            background-color: #e03e00;
+            transform: translateY(-3px);
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1rem 0;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background-color: var(--white);
+                box-shadow: var(--box-shadow);
+                transition: var(--transition);
+                z-index: 1000;
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 2rem;
+            }
+            
+            nav ul li {
+                margin: 1rem 0;
+            }
+            
+            .features-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .image-gallery {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">HP Laptop</div>
+            <button class="mobile-menu-btn">☰</button>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#specs">Specifications</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#purchase">Purchase</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>HP 15.6-inch Laptop with AMD Ryzen 3</h1>
+        
+        <section id="overview">
+            <h2>Product Overview</h2>
+            <p>Get ready for a totally intuitive experience with the HP 15.6-inch Laptop. This PC features a micro-edge HD touchscreen display that lets you control your device with a simple pinch, tap, or swipe on its flicker-free, 1366 x 768 resolution screen. Powered by an AMD Ryzen 3 7320U processor and AMD Radeon Graphics, it delivers accelerated performance for your work, creativity, and entertainment. Enjoy speedy, responsive performance with 8 GB of LPDDR5 RAM and store your files on the 128 GB PCIe NVMe M.2 SSD, which performs up to 15 times faster than a traditional hard drive. It comes with Windows 11 Home in S Mode for a secure computing experience, and includes one-touch access to Microsoft Copilot to boost your productivity. Your privacy is protected with a physical camera shutter and a dedicated microphone mute button.</p>
+        </section>
+        
+        <section id="features">
+            <div class="key-features-section">
+                <h2 class="features-title">Key Features</h2>
+                <ul class="features-list">
+                    <li class="feature-item">
+                        <h3 class="feature-name">MICRO-EDGE HD TOUCHSCREEN DISPLAY</h3>
+                        <p class="feature-description">Reach out and control your PC with just a pinch, tap, or swipe for a totally intuitive experience with flicker-free, 1366 x 768 resolution visuals.</p>
+                    </li>
+                    <li class="feature-item">
+                        <h3 class="feature-name">AMD RYZEN PROCESSOR</h3>
+                        <p class="feature-description">Experience acceleration for your work and creativity in a laptop powered by an AMD Ryzen 3 processor and boosted with incredible battery life.</p>
+                    </li>
+                    <li class="feature-item">
+                        <h3 class="feature-name">AMD RADEON GRAPHICS</h3>
+                        <p class="feature-description">Experience high performance for all your entertainment, whether it's games or movies.</p>
+                    </li>
+                    <li class="feature-item">
+                        <h3 class="feature-name">STORAGE AND MEMORY</h3>
+                        <p class="feature-description">128 GB PCIe NVMe M.2 SSD performs up to 15x faster than a traditional hard drive; and 8 GB LPDDR5 RAM memory is power efficient and provides speedy, responsive performance.</p>
+                    </li>
+                    <li class="feature-item">
+                        <h3 class="feature-name">WINDOWS 11 HOME IN S MODE</h3>
+                        <p class="feature-description">Experience the most secure Windows ever built with added protection against phishing and malware.</p>
+                    </li>
+                    <li class="feature-item">
+                        <h3 class="feature-name">ONE-TOUCH ACCESS TO MICROSOFT COPILOT</h3>
+                        <p class="feature-description">Kickstart your creativity and productivity with intelligent assistance and relevant answers by pressing the Copilot button on your keyboard.</p>
+                    </li>
+                    <li class="feature-item">
+                        <h3 class="feature-name">ENSURE YOUR PRIVACY</h3>
+                        <p class="feature-description">Hide your private moments with a visible, physical camera shutter that turns off your PC's camera when not in use and a dedicated microphone mute button clearly indicated by an active LED light.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="specs">
+            <h2>Specifications</h2>
+            <table class="specs-table">
+                <thead>
+                    <tr>
+                        <th>Specification</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Brand</td><td>HP</td></tr>
+                    <tr><td>Series</td><td>HP Laptop 15-fc0099nr</td></tr>
+                    <tr><td>Model Number</td><td>B8QH8UA#ABA</td></tr>
+                    <tr><td>Standing Screen Display Size</td><td>15.6 Inches</td></tr>
+                    <tr><td>Screen Resolution</td><td>1366 x 768 pixels</td></tr>
+                    <tr><td>Processor</td><td>4.1 GHz ryzen_3</td></tr>
+                    <tr><td>Processor Brand</td><td>AMD</td></tr>
+                    <tr><td>Number of Processors</td><td>4</td></tr>
+                    <tr><td>RAM</td><td>LPDDR5</td></tr>
+                    <tr><td>Computer Memory Type</td><td>DDR5 RAM</td></tr>
+                    <tr><td>Memory Speed</td><td>5500 MHz</td></tr>
+                    <tr><td>Hard Drive</td><td>128 GB PCIe NVMe M.2 SSD</td></tr>
+                    <tr><td>Hard Drive Interface</td><td>PCIE x 16</td></tr>
+                    <tr><td>Graphics Coprocessor</td><td>AMD Radeon Graphics</td></tr>
+                    <tr><td>Chipset Brand</td><td>AMD</td></tr>
+                    <tr><td>Card Description</td><td>Integrated</td></tr>
+                    <tr><td>Graphics Card RAM Size</td><td>8 GB</td></tr>
+                    <tr><td>Wireless Type</td><td>802.11ax, Bluetooth</td></tr>
+                    <tr><td>Operating System</td><td>Windows 11 Home</td></tr>
+                    <tr><td>Hardware Platform</td><td>PC</td></tr>
+                    <tr><td>Item Weight</td><td>3.52 pounds</td></tr>
+                    <tr><td>Product Dimensions</td><td>14.17 x 9.29 x 0.73 inches</td></tr>
+                    <tr><td>Color</td><td>Natural silver</td></tr>
+                    <tr><td>Average Battery Life</td><td>12 Hours</td></tr>
+                    <tr><td>Batteries</td><td>1 AAA batteries required. (included)</td></tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <section id="gallery">
+            <h2>Image Gallery</h2>
+            <div class="image-gallery">
+                <img src="https://m.media-amazon.com/images/I/71ho1gX+PgL._AC_SL1500.jpg" alt="HP 15.6 inch Laptop, Front View" class="gallery-img">
+                <img src="https://m.media-amazon.com/images/I/51Zu+Ce3ZzL._AC_SL1500.jpg" alt="HP 15.6 inch Laptop, Side View" class="gallery-img">
+                <img src="https://m.media-amazon.com/images/I/515-r8QB0ML._AC_SL1500.jpg" alt="HP 15.6 inch Laptop, Keyboard View" class="gallery-img">
+                <img src="https://m.media-amazon.com/images/I/41bjkS+lvpL._AC_SL1500.jpg" alt="HP 15.6 inch Laptop, Ports View" class="gallery-img">
+                <img src="https://m.media-amazon.com/images/I/41CxKTRbBkL._AC_SL1500.jpg" alt="HP 15.6 inch Laptop, Angle View" class="gallery-img">
+                <img src="https://m.media-amazon.com/images/I/41ZHsr3f-YL._AC_SL1500.jpg" alt="HP 15.6 inch Laptop, Open View" class="gallery-img">
+                <img src="https://m.media-amazon.com/images/I/41WtFgGnVtL._AC_SL1500.jpg" alt="HP 15.6 inch Laptop, Detail View" class="gallery-img">
+                <img src="https://m.media-amazon.com/images/I/41WQfJauHfL._AC_SL1500.jpg" alt="HP 15.6 inch Laptop, Back View" class="gallery-img">
+            </div>
+        </section>
+        
+        <div id="imageModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="modalImg">
+        </div>
+        
+        <section id="purchase">
+            <h2>Purchase Information</h2>
+            <div class="purchase-info">
+                <div class="price-container">
+                    <span class="price-label">Price:</span>
+                    <span class="price-value">$367.66</span>
+                </div>
+                <a href="https://www.amazon.com/HP-Touchscreen-Display-Graphics-fc0099nr/dp/B0DZQCTH92" class="product-link" target="_blank" rel="noopener noreferrer">View on Amazon</a>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2023 HP Laptop Product Page</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Support</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mainNav = document.getElementById('main-nav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if (mainNav.classList.contains('active')) {
+                    mainNav.classList.remove('active');
+                }
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Image gallery modal
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+        const closeBtn = document.querySelector('.close');
+        const galleryImages = document.querySelectorAll('.gallery-img');
+        
+        galleryImages.forEach(img => {
+            img.addEventListener('click', () => {
+                modal.style.display = 'flex';
+                modalImg.src = img.src;
+            });
+        });
+        
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+        
+        // Highlight active section on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav ul li a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
